@@ -1,0 +1,40 @@
+/* 展示页面的其他样式 */
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100vw;
+    height: 100vh;
+}
+header{
+    width: 100%;
+    height: 50px;
+    background-color: #2d3436;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+.container{
+    width: 100%;
+    height: 300px;
+    background-color: #2d3436;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.btn{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ecf0f1;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,initial-scale=1.0,width=device-width" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>时间选择器</title>
+    <link rel="stylesheet" href="./basic.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <header>
+        <p>时间选择器</p>
+    </header>
+    <div class="container">
+        
+        <!-- 必需HTML结构 -->
+        <div id="pickContainer">
+            <ul id="scroll_ul">
+                <li class="scroll_space"></li>
+                <li class="scroll_li">1小时</li>
+                <li class="scroll_li">2小时</li>
+                <li class="scroll_li">3小时</li>
+                <li class="scroll_li">4小时</li>
+                <li class="scroll_li">5小时</li>
+                <li class="scroll_li">6小时</li>
+                <li class="scroll_li">7小时</li>
+                <li class="scroll_li">8小时</li>
+                <li class="scroll_li">9小时</li>
+                <li class="scroll_li">10小时</li>
+                <li class="scroll_li">11小时</li>
+                <li class="scroll_li">12小时</li>
+                <li class="scroll_space"></li>
+            </ul>
+        </div>
+        
+        <div class="btn" id="btn">确定</div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="./timePicker.js"></script>
+<script>
+    // 创建对象,传入所需的参数
+    const myPicker = new TimePicker({
+        rootContainer:"pickContainer", // 最外层容器的id
+        root_ul:"scroll_ul", // 滑动ul的id
+    });
+
+    // 为ul绑定ontouchend和ontouchmove事件
+    let ul = document.getElementById("scroll_ul");
+    ul.ontouchend = function(){
+        myPicker.end();
+    };
+    ul.ontouchmove = function(){
+        myPicker.move();
+    };
+
+    // myPicker.getTime()函数会返回当前选择的小时
+    let btn = document.getElementById("btn");
+    btn.onclick = function(){
+        console.log("当前选择的小时为：" + myPicker.getTime());
+    };
+</script>
+</html>
